@@ -2,25 +2,25 @@ body {
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFF3C7;
-    color: #333;
+    background-color: #eaca11;
+    color: #000000;
 }
 
 header {
-    background-color: #FEC7B4;
-    color: #fff;
+    background-color: #000000;
+    color: #eaca11;
     text-align: center;
     padding: 15px 0;
 }
 
 nav {
-    background-color: #FEC7B4;
+    background-color: #000000;
     text-align: center;
     padding: 10px 0;
 }
 
 nav a {
-    color: #333;
+    color: #eaca11;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -32,8 +32,8 @@ nav a {
 }
 
 footer {
-    background-color: #FEC7B4;
-    color: #333;
+    background-color: #000000;
+    color: #eaca11;
     text-align: center;
     margin: 0;
     padding: 3px;
