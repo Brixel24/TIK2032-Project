@@ -22,23 +22,27 @@ function addImageListeners() {
 }
 
 
-function previewImage(image) {
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
-
-    const modalImg = document.createElement("img");
-    modalImg.src = image.src;
-    modalImg.alt = image.alt;
-
-    modal.appendChild(modalImg);
-
-    document.body.appendChild(modal);
-
-    modal.addEventListener("click", function() {
-        modal.remove();
+function showImagePreview() {
+    var images = document.querySelectorAll('.gallery img');
+    
+    images.forEach(function(image) {
+        image.addEventListener('mouseover', function() {
+            var modal = document.createElement('div');
+            modal.classList.add('modal');
+            
+            var modalImg = document.createElement('img');
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+        
+            modal.appendChild(modalImg);
+            
+            document.body.appendChild(modal);
+    
+            image.addEventListener('mouseout', function() {
+                modal.remove();
+            });
+        });
     });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    addImageListeners();
-});
+window.addEventListener('load', showImagePreview);
