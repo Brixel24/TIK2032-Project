@@ -1,83 +1,32 @@
-<!DOCTYPE html>
+function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Clark Rotinsulu">
-    <meta name="description" content="This is my contacts.">
-    <title>Contact | Personal Page Clark</title>
-    <link rel="icon" href="contacticon.jpg" type="image/x-icon">
+    if (name === "" || email === "" || message === "") {
+        alert("Please fill in all fields.");
+        return false;
+    }
 
-</head>
+    const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!email.match(emailFormat)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
 
-<body>
-    <header>
-        <h1>Welcome To My Personal Page</h1>
-        <nav>
-            <div>
-                <a href="index.html" target="home">
-                    <button class="button">Home</button>
-                </a>
-                <a href="gallery.html" target="gallery">
-                    <button class="button">Gallery</button>
-                </a>
-                <a href="blog.html" target="blog">
-                    <button class="button">Blog</button>
-                </a>
-                <a href="contact.html" target="contact">
-                    <button class="button">Contact</button>
-                </a>
-            </div>
-        </nav>
-    </header>
-    <hr>
-    <main>
-        <section>
-            <h2>Contact Me</h2>
-            
-            <form action="https://httpbin.org/get" method="get" onsubmit="return validateForm()">
-                <fieldset>
-                    <legend>Send Me a Message</legend>
-                    <p>
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" id="name" placeholder="your name" required>
-                    </p>
-                    <p>
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" placeholder="your email" required>
-                    </p>
-                    <p>
-                        <label for="message">Your Message:</label>
-                        <br>
-                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Type your message here" required></textarea>
-                    </p>
-                </fieldset>
-                <button type="submit">Send</button>
-                <button type="reset">Reset</button>
-            </form>
-        </section>
-        <section>
-            <h2>Contact</h2>
-            <p>Email: clarkrotinsulu026@student.unsrat.ac.id <br> Phone: 082293947884</p>
-        </section>
-    </main>
-    <hr>
-    <footer>
-        <p>Clark Rotinsulu &copy; 220211060067</p>
-    </footer>
-    <script>
-        function validateForm() {
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var message = document.getElementById('message').value;
+    return true;
+}
 
-            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-                alert('Please fill out all fields.');
-                return false;
-            }
+function submitForm(event) {
+    event.preventDefault();
 
-            return true;
-        }
-    </script>
-</body>
-</html>
+    if (validateForm()) {
+        const form = document.getElementById("contactForm");
+        form.submit();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", submitForm);
+});
