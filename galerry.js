@@ -12,35 +12,33 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function handleImageHover(event) {
-    const hoveredImage = event.target; 
-    const imageUrl = hoveredImage.getAttribute('src'); 
-
-    const previewContainer = document.createElement('div');
-    previewContainer.classList.add('image-preview-container');
-
-    const previewImage = document.createElement('img');
-    previewImage.classList.add('preview-image');
-    previewImage.src = imageUrl; 
-
-    previewContainer.appendChild(previewImage);
-
-    document.body.appendChild(previewContainer);
-
-    previewContainer.style.left = event.clientX + 'px';
-    previewContainer.style.top = event.clientY + 'px';
+function addImageListeners() {
+    const images = document.querySelectorAll(".gallery img");
+    images.forEach(image => {
+        image.addEventListener("click", function() {
+            previewImage(image);
+        });
+    });
 }
 
-function handleImageLeave() {
-    const previewContainer = document.querySelector('.image-preview-container');
-    if (previewContainer) {
-        document.body.removeChild(previewContainer);
-    }
+
+function previewImage(image) {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    const modalImg = document.createElement("img");
+    modalImg.src = image.src;
+    modalImg.alt = image.alt;
+
+    modal.appendChild(modalImg);
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener("click", function() {
+        modal.remove();
+    });
 }
 
-const galleryImages = document.querySelectorAll('.gallery img');
-
-galleryImages.forEach(image => {
-    image.addEventListener('mouseenter', handleImageHover);
-    image.addEventListener('mouseleave', handleImageLeave);
+document.addEventListener("DOMContentLoaded", function() {
+    addImageListeners();
 });
