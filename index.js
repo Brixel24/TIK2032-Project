@@ -1,57 +1,55 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Clark Metthew Rotinsulu">
-    <meta name="description" content="Here you guys can see my project on making website using html">
-    <title>Home | Personal Homepage Clark</title>
-    <link rel="icon" href="homeicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-    <header>
-        <h1>Welcome to my personal page</h1>
-        <nav>
-            <a href="index.html" target="home">
-                <button class="button">Home</button>
-            </a>
-            <a href="galery.html" target="gallery">
-                <button class="button">Gallery</button>
-            </a>
-            <a href="blog.html" target="blog">
-                <button class="button">Blog</button>
-            </a>
-            <a href="contact.html" target="contact">
-                <button class="button">Contact</button>
-            </a>
-        </nav>
-    </header>
-    <hr>
-
-    <main>
-        <article id="about">
-            <h2>About Me</h2>
-            <p>
-                Hello everyone my name is Clark i'm 19 years old and my hobby is playing guitar. 
-                Here you guys can see my simple website that i made. 
-                Hope you guys enjoy it!
-            </p>
-        </article>
-    </main>
-    <hr>
-    <footer>
-        <p>Clark Rotinsulu &copy; 220211060067</p>
-    </footer>
-
-    <script>
-        // Function to display a greeting message
-        function displayGreeting() {
-            alert("Hello there! Welcome to Clark's personal page.");
-        }
-
-        // Call the function when the page loads
-        window.onload = displayGreeting;
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Clark Metthew Rotinsulu">
+        <meta name="description" content="Here you guys can see my project on making website using html">
+        <title>Home | Personal Homepage Clark</title>
+        <link rel="icon" href="homeicon.png" type="image/x-icon">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Page loaded');
+            });
+        </script>
+    </head>
+    
+    <body>
+        <header>
+            <h1>Welcome to my personal page</h1>
+            <nav>
+                <div>
+                    <a href="index.html" target="home">
+                        <button class="button">Home</button>
+                    </a>
+                    <a href="galery.html" target="gallery">
+                        <button class="button">Gallery</button>
+                    </a>
+                    <a href="blog.html" target="blog">
+                        <button class="button">Blog</button>
+                    </a>
+                    <a href="contact.html" target="contact">
+                        <button class="button">Contact</button>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <hr>
+        
+        <main>
+            <article id="about">
+                <h2>About Me</h2>
+                <p>
+                    Hello everyone my name is Clark i'm 19 years old and my hobby is playing guitar. 
+                    Here you guys can see my simple website that i made. 
+                    Hope you guys enjoy it!
+                </p>
+            </article>
+        </main>
+        <hr>
+        <footer>
+            <p>Clark Rotinsulu © 220211060067</p>
+        </footer>
+    </body>
+    
 </html>
