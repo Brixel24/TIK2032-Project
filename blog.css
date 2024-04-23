@@ -69,3 +69,10 @@ img {
 .blog article {
     margin-bottom: 20px;
 }
+.button:hover,
+.button.hover {
+    /* Define your hover effect here */
+    background-color: #ff6600;
+    color: white;
+    transform: scale(1.1);
+}

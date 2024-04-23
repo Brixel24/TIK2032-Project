@@ -57,3 +57,10 @@ p {
     line-height: 1.5;
     padding: 2px 25px;
 }
+.button:hover,
+.button.hover {
+    /* Define your hover effect here */
+    background-color: #ff6600;
+    color: white;
+    transform: scale(1.1);
+}
