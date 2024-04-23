@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", function() {
+            this.classList.add("hover");
+        });
+
+        button.addEventListener("mouseleave", function() {
+            this.classList.remove("hover");
+        });
+    });
+});
+
 function validateForm() {
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();

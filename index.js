@@ -1,14 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var links = document.querySelectorAll("nav a");
+    const buttons = document.querySelectorAll(".button");
 
-    links.forEach(function(link) {
-        link.addEventListener("click", function(event) {
-            event.preventDefault(); 
-            var targetId = this.getAttribute("href").substring(1); 
-            var targetSection = document.getElementById(targetId); 
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" }); 
-            }
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", function() {
+            this.classList.add("hover");
         });
+
+        button.addEventListener("mouseleave", function() {
+            this.classList.remove("hover");
+        });
+    });
+});
+
+function handleButtonClick(target) {
+    var iframe = document.querySelector('iframe[name="' + target + '"]');
+    if (iframe) {
+        iframe.src = target + '.html';
+    }
+}
+
+document.querySelectorAll('.button').forEach(function(button) {
+    button.addEventListener('click', function() {
+        var target = this.getAttribute('target');
+        handleButtonClick(target);
     });
 });

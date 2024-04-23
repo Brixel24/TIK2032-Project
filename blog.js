@@ -1,10 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var currentUrl = window.location.href;
-    var links = document.querySelectorAll("nav a");
+    const buttons = document.querySelectorAll(".button");
 
-    links.forEach(function(link) {
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", function() {
+            this.classList.add("hover");
+        });
+
+        button.addEventListener("mouseleave", function() {
+            this.classList.remove("hover");
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const currentUrl = window.location.href;
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
         if (link.href === currentUrl) {
             link.classList.add("active");
         }
     });
 });
+

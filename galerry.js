@@ -1,37 +1,46 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".button");
 
-    const images = document.querySelectorAll(".gallery img");
+    buttons.forEach(button => {
+        button.addEventListener("mouseenter", function() {
+            this.classList.add("hover");
+        });
 
-    images.forEach(function(image) {
-        // Add click event listener to each image
-        image.addEventListener("click", function() {
-            // Create a modal overlay
-            const overlay = document.createElement("div");
-            overlay.className = "overlay";
-
-            // Create an image element for the modal
-            const modalImg = document.createElement("img");
-            modalImg.src = this.src;
-            modalImg.alt = this.alt;
-
-            // Append the image to the overlay
-            overlay.appendChild(modalImg);
-
-            // Create a close button for the modal
-            const closeButton = document.createElement("button");
-            closeButton.textContent = "Close";
-            closeButton.className = "close-button";
-
-            // Add click event listener to close the modal when the close button is clicked
-            closeButton.addEventListener("click", function() {
-                document.body.removeChild(overlay);
-            });
-
-            // Append the close button to the overlay
-            overlay.appendChild(closeButton);
-
-            // Append the overlay to the body
-            document.body.appendChild(overlay);
+        button.addEventListener("mouseleave", function() {
+            this.classList.remove("hover");
         });
     });
+});
+
+function handleImageHover(event) {
+    const hoveredImage = event.target; 
+    const imageUrl = hoveredImage.getAttribute('src'); 
+
+    const previewContainer = document.createElement('div');
+    previewContainer.classList.add('image-preview-container');
+
+    const previewImage = document.createElement('img');
+    previewImage.classList.add('preview-image');
+    previewImage.src = imageUrl; 
+
+    previewContainer.appendChild(previewImage);
+
+    document.body.appendChild(previewContainer);
+
+    previewContainer.style.left = event.clientX + 'px';
+    previewContainer.style.top = event.clientY + 'px';
+}
+
+function handleImageLeave() {
+    const previewContainer = document.querySelector('.image-preview-container');
+    if (previewContainer) {
+        document.body.removeChild(previewContainer);
+    }
+}
+
+const galleryImages = document.querySelectorAll('.gallery img');
+
+galleryImages.forEach(image => {
+    image.addEventListener('mouseenter', handleImageHover);
+    image.addEventListener('mouseleave', handleImageLeave);
 });
